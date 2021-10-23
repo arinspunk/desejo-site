@@ -1,10 +1,27 @@
-import React from 'React';
-import CreateNewPost from './CreateNewPost'
+import React, { useState } from 'react';
+import CreateNewPost from './CreateNewPost';
+
 const DisplayAllPosts = () => {
+
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+
+    const savePostTitleToState = event => {
+        setTitle(event.target.value);
+        console.log(title);
+    };
+    const savePostContentToState = event => {
+        setContent(event.target.value);
+        console.log(content);
+    };
+    
     return (
         <>
-            <CreateNewPost />
+            <CreateNewPost
+                savePostTitleToState={savePostTitleToState}
+                savePostContentToState={savePostContentToState}
+            />
         </>
     )
-}
-export default DisplayAllPosts
+};
+export default DisplayAllPosts;
